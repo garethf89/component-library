@@ -6,7 +6,7 @@ import { typography } from "@styled-system/typography"
 /**
  * List of props for emotion to omit from DOM.
  */
-const allPropNames = new Set(["as", "__css", "css", "sx"])
+const allPropNames = new Set(["as", "__css", "css", "sx", "scale", "cursor"])
 
 export const propNames = new Set([
     ...color.propNames,
