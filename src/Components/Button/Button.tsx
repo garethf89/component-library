@@ -28,13 +28,17 @@ const THEME_KEY = "styles.button"
 const Button = ({
     children,
     isLoading = false,
+    onPress,
     ...props
 }: ButtonProps): React.ReactElement => {
     const ref = useRef(null)
 
     const userProps = { isLoading, ...props }
 
-    const { buttonProps } = useButton(userProps, ref as RefObject<HTMLElement>)
+    const { buttonProps } = useButton(
+        { ...userProps, onPress },
+        ref as RefObject<HTMLElement>
+    )
     const BASE_BUTTON_STYLES = BaseStyles(THEME_KEY)
     const propsMerged = mergeProps(BASE_BUTTON_STYLES, buttonProps, userProps)
 
